@@ -3,6 +3,15 @@
     margin: 0%;
     box-sizing: border-box;
 }
+.section{
+    margin: 20px 0px;
+    padding: 20px 0px;
+}
+.section-title{
+    font-weight: 700;
+    font-size: 40px;
+    text-transform: capitalize;
+}
 .nav-link{
     margin-right: 10px;
     margin-left: 10px;
@@ -56,5 +65,10 @@
 -webkit-box-shadow: 0px 0px 15px 9px rgba(230,0,0,0.75);
 -moz-box-shadow: 0px 0px 15px 9px rgba(230,0,0,0.75);
     transition: 0.5sec;
+}
+.Price{
+    font-size: 20px;
+    font-weight: 400;
+    color: rgb(255, 0, 255);
 }
 
