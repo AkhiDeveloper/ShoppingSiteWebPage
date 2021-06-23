@@ -18,3 +18,43 @@
     height: 40px;
     width: auto;
 }
+
+.product-card{
+    text-decoration: none;
+    color: black;
+    padding:0;
+    margin: 10px 0px;
+}
+.product-card:hover{
+    color: black;
+    background-color: rgba(230,0,0,0.75);
+    box-shadow: 0px 0px 15px 9px rgba(230,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 15px 9px rgba(230,0,0,0.75);
+    -moz-box-shadow: 0px 0px 15px 9px rgba(230,0,0,0.75);
+}
+.card-text{
+    margin: 0;
+    padding: 0;
+}
+.btn1{
+    height: 40px;
+    margin: 20px;
+    padding: 0px 30px;
+    min-width: 100px;
+    border: none;
+    outline: none;
+    background-color: orange;
+    font-size:  16px;
+    text-align: center;
+    display:inline-block;
+    border-radius: 100px;
+    font-weight: 700;
+}
+
+.btn1:hover{
+    box-shadow: 0px 0px 15px 9px rgba(230,0,0,0.75);
+-webkit-box-shadow: 0px 0px 15px 9px rgba(230,0,0,0.75);
+-moz-box-shadow: 0px 0px 15px 9px rgba(230,0,0,0.75);
+    transition: 0.5sec;
+}
+
