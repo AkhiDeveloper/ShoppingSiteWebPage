@@ -43,26 +43,26 @@
                                         <div class="col-6 mx-auto">                                           
                                                 <ul class="pagination justify-content-end set-quantity">
                                                   <li class="page-item">
-                                                      <button class="page-link" onclick="decreaseNumber()"><i class="fas fa-minus"></i></button>
+                                                      <button class="page-link" onclick="decreaseNumber('itemnum1', 'itemprice1')" id = "decreaser1"><i class="fas fa-minus"></i></button>
                                                   </li>
                                                   <li class="page-item">
-                                                      <input type="text" name="" class="page-link" value="1" id="textbox">
+                                                      <input type="text" name="" class="page-link" value="1" id="itemnum1" readonly>
                                                        </input>
                                                   </li>
                                                   <li class="page-item">
-                                                       <button class="page-link" onclick="increaseNumber()"><i class="fas fa-plus"></i></button>
+                                                       <button class="page-link" onclick="increaseNumber('itemnum1','itemprice1')" id="increaser1"><i class="fas fa-plus"></i></button>
                                                   </li>                                                
                                                 </ul>
                                         </div>
                                     </div>
                                     <!--remove move and price-->
                                     <div class="row mx-auto">
-                                        <div class="col-8 mx-auto d-flex justify-content-between remove_wish">
+                                        <div class="col-8 mx-auto d-flex justify-content-between remove-wish">
                                             <p><i class="fas fa-trash-alt"></i>Remove</p>
-                                            <p><i class="fas fa-heart"></i>Remove</p>
+                                            <p><i class="fas fa-heart"></i>Move to Wishlist</p>
                                         </div>
                                         <div class="col-4 mx-auto d-flex justify-content-end price-money">
-                                            <h3>$<span id="itemval">0.00</span></h3>
+                                            <h3>$<span id="itemprice1">200.00</span></h3>
                                         </div>
                                     </div>
                                     
@@ -90,14 +90,14 @@
                                         <div class="col-6 mx-auto">                                           
                                                 <ul class="pagination justify-content-end set-quantity">
                                                   <li class="page-item">
-                                                      <button class="page-link" onclick="decreaseNumber()"><i class="fas fa-minus"></i></button>
+                                                      <button class="page-link" onclick="decreaseNumber('itemnum2','itemprice2')"><i class="fas fa-minus"></i></button>
                                                   </li>
                                                   <li class="page-item">
-                                                      <input type="text" name="" class="page-link" value="1" id="textbox">
+                                                      <input type="text" name="" class="page-link" value="1" id='itemnum2'readonly>
                                                        </input>
                                                   </li>
                                                   <li class="page-item">
-                                                       <button class="page-link" onclick="increaseNumber()"><i class="fas fa-plus"></i></button>
+                                                       <button class="page-link" onclick="increaseNumber('itemnum2')"><i class="fas fa-plus"></i></button>
                                                   </li>                                                
                                                 </ul>
                                         </div>
@@ -106,10 +106,10 @@
                                     <div class="row mx-auto">
                                         <div class="col-8 mx-auto d-flex justify-content-between remove_wish">
                                             <p><i class="fas fa-trash-alt"></i>Remove</p>
-                                            <p><i class="fas fa-heart"></i>Remove</p>
+                                            <p><i class="fas fa-heart"></i>Move to Wishlist</p>
                                         </div>
                                         <div class="col-4 mx-auto d-flex justify-content-end price-money">
-                                            <h3>$<span id="itemval">0.00</span></h3>
+                                            <h3>$<span id="itemprice2">0.00</span></h3>
                                         </div>
                                     </div>
                                     
@@ -187,5 +187,36 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
+
+    <!--My JS-->
+    <script type="text/javascript">
+    const decreaseNumber=(itemnum, itemsprice)=>{
+        var items=(document.getElementById(itemnum));
+        var price=(document.getElementById(itemsprice));
+        if(items.value<=1)
+        {
+            alert("Do you want to remove this product?");
+        }
+        else
+        {
+            var rate=parseInt(price.value)/parseInt(items.value)
+            items.value=parseInt(items.value)-1;
+            price.value=rate * items.value;
+        }
+    }
+
+    const increaseNumber=(items)=>{
+        var itemval=document.getElementById(items);
+        let upperlimit=5;
+        if(itemval.value>=upperlimit)
+        {
+            alert("Limit of Items is "+upperlimit);
+        }
+        else
+        {
+            itemval.value=parseInt(itemval.value)+1;
+        }
+    }
+    </script>
   </body>
 </html>
