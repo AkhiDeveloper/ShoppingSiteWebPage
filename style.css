@@ -4,6 +4,7 @@
     margin: 0%;
     box-sizing: border-box;
     font-family: 'Mulish', sans-serif;
+    background-color: black;
 
 }
 :root{
@@ -28,6 +29,9 @@
  .page-link:focus { box-shadow: none; } 
  .price-indiv p { font-size: 1.1rem; } 
  .fa-heart:hover { color: red; }
-
-
+.icon1{font-size: 35px; max-width: 20px;}
+.icon1:hover{color: red;}
+.logo-image{opacity: 0; height: 40px;}
+.p1{font-size: 13px;}
+.p2{font-size: 14px; font-weight: 700;}
 

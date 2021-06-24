@@ -21,12 +21,12 @@
             <div class="col-md-10 col-11 mx-auto">
                 <div class="row mt-5 gx-3">
                     <!--left side div-->
-                    <div class="col-md-12 col-lg-8 col-11 mx-auto main_cart mb-lg-0 mb-5">
-                        <div class="card p-4 shadow">
+                    <div class="col-md-12 col-lg-8 col-11 mx-auto main_cart mb-lg-0 mb-5 shadow">
+                        <div class="card p-4">
                             <h2 class="py-4 font-weight-bold">Cart(2 Items)</h2>
                             <div class="row">
                                 <!--Cart Image Div-->
-                                <div class="col-md-5 col-11 mx-auto bg-light d-flex justify-content-center align-items-center shadow product_img">
+                                <div class="col-md-5 col-11 mx-auto bg-light d-flex justify-content-center align-items-center shadow product-img">
                                     <img src="./1.jpg" class="img-fluid" alt="">
                                 </div>
                                 <!--Cart product details-->
@@ -70,10 +70,10 @@
                             </div>
                         </div>
                         <hr/>
-                        <div class="card p-4 shadow">
+                        <div class="card p-4">
                             <div class="row">
                                 <!--Cart Image Div-->
-                                <div class="col-md-5 col-11 mx-auto bg-light d-flex justify-content-center align-items-center shadow product_img">
+                                <div class="col-md-5 col-11 mx-auto bg-light d-flex justify-content-center align-items-center shadow product-img">
                                     <img src="./1.jpg" class="img-fluid" alt="">
                                 </div>
                                 <!--Cart product details-->
@@ -97,7 +97,7 @@
                                                        </input>
                                                   </li>
                                                   <li class="page-item">
-                                                       <button class="page-link" onclick="increaseNumber('itemnum2')"><i class="fas fa-plus"></i></button>
+                                                       <button class="page-link" onclick="increaseNumber('itemnum2', 'itemprice2')"><i class="fas fa-plus"></i></button>
                                                   </li>                                                
                                                 </ul>
                                         </div>
@@ -109,7 +109,7 @@
                                             <p><i class="fas fa-heart"></i>Move to Wishlist</p>
                                         </div>
                                         <div class="col-4 mx-auto d-flex justify-content-end price-money">
-                                            <h3>$<span id="itemprice2">0.00</span></h3>
+                                            <h3>$<span id="itemprice2">70</span></h3>
                                         </div>
                                     </div>
                                     
@@ -191,31 +191,57 @@
     <!--My JS-->
     <script type="text/javascript">
     const decreaseNumber=(itemnum, itemsprice)=>{
-        var items=(document.getElementById(itemnum));
+        var itemval=(document.getElementById(itemnum));
         var price=(document.getElementById(itemsprice));
-        if(items.value<=1)
+        //console.log(price.innerHTML);
+        //Price Checking
+        if(price.innerHTML<=0)
+        {
+            alert("Invalid Price")
+            var rate=0;
+        }       
+        else
+        {
+            var rate=parseFloat(price.innerHTML)/parseFloat(itemval.value);
+        }
+        //Quantity Decrease
+        if(itemval.value<=1)
         {
             alert("Do you want to remove this product?");
         }
         else
         {
-            var rate=parseInt(price.value)/parseInt(items.value)
-            items.value=parseInt(items.value)-1;
-            price.value=rate * items.value;
+            itemval.value=parseInt(itemval.value)-1;           
         }
+        //Price Update
+        price.innerHTML=parseFloat(itemval.value)*rate;      
     }
 
-    const increaseNumber=(items)=>{
+    const increaseNumber=(items, itemsprice)=>{
         var itemval=document.getElementById(items);
+        var price=document.getElementById(itemsprice);
         let upperlimit=5;
+        //Price Checking
+        if(price.innerHTML<=0)
+        {
+            alert("Invalid Price")
+            var rate=0;
+        }       
+        else
+        {
+            var rate=parseFloat(price.innerHTML)/parseFloat(itemval.value);
+        }
+        //Quantity Increases
         if(itemval.value>=upperlimit)
         {
             alert("Limit of Items is "+upperlimit);
         }
         else
         {
-            itemval.value=parseInt(itemval.value)+1;
+            itemval.value=parseInt(itemval.value)+1;           
         }
+        //Price Update
+        price.innerHTML=parseFloat(itemval.value)*rate;      
     }
     </script>
   </body>
