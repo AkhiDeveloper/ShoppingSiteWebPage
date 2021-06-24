@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@1,300&display=swap');
 *{
     padding: 0%;
     margin: 0%;
     box-sizing: border-box;
+    font-family: 'Mulish', sans-serif;
+
 }
+:root{
+    --text-clr: #4f4f4f;
+}
+
 .section{
     margin: 20px 0px;
     padding: 20px 0px;
